@@ -24,7 +24,7 @@ color:#fff;background:#0006;border:0;padding:8px 16px;cursor:pointer;
 user-select:none;z-index:2}
 #lb .b:hover{background:#000a}
 #lbPrev{left:10px}#lbNext{right:10px}
-@media(max-width:600px){#lb img{max-width:84vw}#lb .b{font-size:2em;padding:6px 10px}
+@media(max-width:600px){#lb img{max-width:100vw}#lb .b{font-size:2em;padding:6px 10px}
 #lbPrev{left:2px}#lbNext{right:2px}}
 #lbX{position:absolute;top:10px;right:16px;font-size:1.8em;color:#fff;
 cursor:pointer;user-select:none;z-index:2}
