@@ -3,17 +3,17 @@
 <header><a href="../index.html">Poster</a><a href="../days.html">All days</a></header>
 <div class=nav><span></span><b> — </b><a href="2026-06-30.html">2026-06-30 &rarr;</a></div>
 <p class=stats>rest / no ride recorded · 11 photos</p>
-<div class=grid><a href="../photos/c00a4622-9ebb-47c4-9696-1362b09e1d93.jpg"><img loading="lazy" src="../thumbs/c00a4622-9ebb-47c4-9696-1362b09e1d93.jpg"></a>
-<a href="../photos/IMG-20260903-WA0001.jpg"><img loading="lazy" src="../thumbs/IMG-20260903-WA0001.jpg"></a>
-<a href="../photos/IMG-20260828-WA0001.jpg"><img loading="lazy" src="../thumbs/IMG-20260828-WA0001.jpg"></a>
-<a href="../photos/IMG-20260828-WA0002.jpg"><img loading="lazy" src="../thumbs/IMG-20260828-WA0002.jpg"></a>
-<a href="../photos/IMG-20260816-WA0001.jpg"><img loading="lazy" src="../thumbs/IMG-20260816-WA0001.jpg"></a>
-<a href="../photos/IMG-20260816-WA0003.jpg"><img loading="lazy" src="../thumbs/IMG-20260816-WA0003.jpg"></a>
-<a href="../photos/IMG-20260820-WA0011.jpg"><img loading="lazy" src="../thumbs/IMG-20260820-WA0011.jpg"></a>
-<a href="../photos/IMG-20260805-WA0006.jpg"><img loading="lazy" src="../thumbs/IMG-20260805-WA0006.jpg"></a>
-<a href="../photos/02314e8e-02f5-4566-be1a-cd0a1e3bb1f0.jpg"><img loading="lazy" src="../thumbs/02314e8e-02f5-4566-be1a-cd0a1e3bb1f0.jpg"></a>
-<a href="../photos/IMG-20260719-WA0001.jpg"><img loading="lazy" src="../thumbs/IMG-20260719-WA0001.jpg"></a>
-<a href="../photos/IMG-20260716-WA0006.jpg"><img loading="lazy" src="../thumbs/IMG-20260716-WA0006.jpg"></a></div>
+<div class=grid><a href="#" data-src="../photos/c00a4622-9ebb-47c4-9696-1362b09e1d93.jpg"><img loading="lazy" src="../thumbs/c00a4622-9ebb-47c4-9696-1362b09e1d93.jpg"></a>
+<a href="#" data-src="../photos/IMG-20260903-WA0001.jpg"><img loading="lazy" src="../thumbs/IMG-20260903-WA0001.jpg"></a>
+<a href="#" data-src="../photos/IMG-20260828-WA0001.jpg"><img loading="lazy" src="../thumbs/IMG-20260828-WA0001.jpg"></a>
+<a href="#" data-src="../photos/IMG-20260828-WA0002.jpg"><img loading="lazy" src="../thumbs/IMG-20260828-WA0002.jpg"></a>
+<a href="#" data-src="../photos/IMG-20260816-WA0001.jpg"><img loading="lazy" src="../thumbs/IMG-20260816-WA0001.jpg"></a>
+<a href="#" data-src="../photos/IMG-20260816-WA0003.jpg"><img loading="lazy" src="../thumbs/IMG-20260816-WA0003.jpg"></a>
+<a href="#" data-src="../photos/IMG-20260820-WA0011.jpg"><img loading="lazy" src="../thumbs/IMG-20260820-WA0011.jpg"></a>
+<a href="#" data-src="../photos/IMG-20260805-WA0006.jpg"><img loading="lazy" src="../thumbs/IMG-20260805-WA0006.jpg"></a>
+<a href="#" data-src="../photos/02314e8e-02f5-4566-be1a-cd0a1e3bb1f0.jpg"><img loading="lazy" src="../thumbs/02314e8e-02f5-4566-be1a-cd0a1e3bb1f0.jpg"></a>
+<a href="#" data-src="../photos/IMG-20260719-WA0001.jpg"><img loading="lazy" src="../thumbs/IMG-20260719-WA0001.jpg"></a>
+<a href="#" data-src="../photos/IMG-20260716-WA0006.jpg"><img loading="lazy" src="../thumbs/IMG-20260716-WA0006.jpg"></a></div>
 <div id=lb><span id=lbX>&times;</span><button class=b id=lbPrev>&#8249;</button>
 <img alt=""><video controls playsinline></video><button class=b id=lbNext>&#8250;</button><span id=lbCap></span></div>
 <script>
@@ -22,7 +22,7 @@ vid=lb.querySelector('video'),cap=document.getElementById('lbCap');
 const links=[...document.querySelectorAll('.grid a')];
 let cur=0;
 function show(i){cur=(i+links.length)%links.length;
-const href=links[cur].href;
+const href=links[cur].dataset.src;
 if(/\.(mp4|mov|m4v|webm|avi)(\?.*)?$/i.test(href)){
 im.style.display='none';vid.style.display='block';vid.src=href;vid.play();
 }else{vid.pause();vid.style.display='none';im.style.display='block';im.src=href;}
@@ -72,4 +72,9 @@ let sx=null;lb.addEventListener('touchstart',e=>{if(zpts.size<2)sx=e.touches[0].
 lb.addEventListener('touchend',e=>{if(sx===null||zs>1){sx=null;return;}
 const dx=e.changedTouches[0].clientX-sx;
 if(dx>50)show(cur-1);else if(dx<-50)show(cur+1);sx=null;});
+
+document.addEventListener('contextmenu',e=>{
+if(e.target.closest('.grid,#lb,#viewer'))e.preventDefault();});
+document.addEventListener('dragstart',e=>{
+if(e.target.closest('.grid,#lb'))e.preventDefault();});
 </script>

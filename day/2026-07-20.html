@@ -3,18 +3,18 @@
 <header><a href="../index.html">Poster</a><a href="../days.html">All days</a></header>
 <div class=nav><a href="2026-07-19.html">&larr; 2026-07-19</a><b>2026-07-20 — Inzell - Berchtesgarten</b><a href="2026-07-21.html">2026-07-21 &rarr;</a></div>
 <p class=stats>24.5 miles · 1507 ft ascent · 62 ft/mile · 12 photos</p>
-<div class=grid><a href="../maps/post_07.png"><img src="../maps/post_07.png" alt="route map"></a><a href="../photos/IMG_9254.jpg"><img loading="lazy" src="../thumbs/IMG_9254.jpg"></a>
-<a href="../photos/IMG_9264 Copy.jpg"><img loading="lazy" src="../thumbs/IMG_9264 Copy.jpg"></a>
-<a href="../photos/20260720_123602.jpg"><img loading="lazy" src="../thumbs/20260720_123602.jpg"></a>
-<a href="../photos/IMG_9268.jpg"><img loading="lazy" src="../thumbs/IMG_9268.jpg"></a>
-<a href="../photos/IMG_9269.jpg"><img loading="lazy" src="../thumbs/IMG_9269.jpg"></a>
-<a href="../photos/20260720_130617.jpg"><img loading="lazy" src="../thumbs/20260720_130617.jpg"></a>
-<a href="../photos/20260720_130659.jpg"><img loading="lazy" src="../thumbs/20260720_130659.jpg"></a>
-<a href="../photos/IMG_9271.jpg"><img loading="lazy" src="../thumbs/IMG_9271.jpg"></a>
-<a href="../photos/IMG_9273.jpg"><img loading="lazy" src="../thumbs/IMG_9273.jpg"></a>
-<a href="../photos/20260720_133322.jpg"><img loading="lazy" src="../thumbs/20260720_133322.jpg"></a>
-<a href="../photos/20260720_133559.jpg"><img loading="lazy" src="../thumbs/20260720_133559.jpg"></a>
-<a href="../photos/20260720_134225.jpg"><img loading="lazy" src="../thumbs/20260720_134225.jpg"></a></div>
+<div class=grid><a href="#" data-src="../maps/post_07.png"><img src="../maps/post_07.png" alt="route map"></a><a href="#" data-src="../photos/IMG_9254.jpg"><img loading="lazy" src="../thumbs/IMG_9254.jpg"></a>
+<a href="#" data-src="../photos/IMG_9264 Copy.jpg"><img loading="lazy" src="../thumbs/IMG_9264 Copy.jpg"></a>
+<a href="#" data-src="../photos/20260720_123602.jpg"><img loading="lazy" src="../thumbs/20260720_123602.jpg"></a>
+<a href="#" data-src="../photos/IMG_9268.jpg"><img loading="lazy" src="../thumbs/IMG_9268.jpg"></a>
+<a href="#" data-src="../photos/IMG_9269.jpg"><img loading="lazy" src="../thumbs/IMG_9269.jpg"></a>
+<a href="#" data-src="../photos/20260720_130617.jpg"><img loading="lazy" src="../thumbs/20260720_130617.jpg"></a>
+<a href="#" data-src="../photos/20260720_130659.jpg"><img loading="lazy" src="../thumbs/20260720_130659.jpg"></a>
+<a href="#" data-src="../photos/IMG_9271.jpg"><img loading="lazy" src="../thumbs/IMG_9271.jpg"></a>
+<a href="#" data-src="../photos/IMG_9273.jpg"><img loading="lazy" src="../thumbs/IMG_9273.jpg"></a>
+<a href="#" data-src="../photos/20260720_133322.jpg"><img loading="lazy" src="../thumbs/20260720_133322.jpg"></a>
+<a href="#" data-src="../photos/20260720_133559.jpg"><img loading="lazy" src="../thumbs/20260720_133559.jpg"></a>
+<a href="#" data-src="../photos/20260720_134225.jpg"><img loading="lazy" src="../thumbs/20260720_134225.jpg"></a></div>
 <div id=lb><span id=lbX>&times;</span><button class=b id=lbPrev>&#8249;</button>
 <img alt=""><video controls playsinline></video><button class=b id=lbNext>&#8250;</button><span id=lbCap></span></div>
 <script>
@@ -23,7 +23,7 @@ vid=lb.querySelector('video'),cap=document.getElementById('lbCap');
 const links=[...document.querySelectorAll('.grid a')];
 let cur=0;
 function show(i){cur=(i+links.length)%links.length;
-const href=links[cur].href;
+const href=links[cur].dataset.src;
 if(/\.(mp4|mov|m4v|webm|avi)(\?.*)?$/i.test(href)){
 im.style.display='none';vid.style.display='block';vid.src=href;vid.play();
 }else{vid.pause();vid.style.display='none';im.style.display='block';im.src=href;}
@@ -73,4 +73,9 @@ let sx=null;lb.addEventListener('touchstart',e=>{if(zpts.size<2)sx=e.touches[0].
 lb.addEventListener('touchend',e=>{if(sx===null||zs>1){sx=null;return;}
 const dx=e.changedTouches[0].clientX-sx;
 if(dx>50)show(cur-1);else if(dx<-50)show(cur+1);sx=null;});
+
+document.addEventListener('contextmenu',e=>{
+if(e.target.closest('.grid,#lb,#viewer'))e.preventDefault();});
+document.addEventListener('dragstart',e=>{
+if(e.target.closest('.grid,#lb'))e.preventDefault();});
 </script>
