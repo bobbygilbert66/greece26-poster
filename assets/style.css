@@ -1,0 +1,28 @@
+
+body{font-family:Segoe UI,Arial,sans-serif;margin:0;background:#111;color:#eee}
+a{color:#8cf} header{padding:10px 16px;background:#0009;position:sticky;top:0;z-index:9}
+header a{margin:0 14px}
+#viewer{position:relative;width:100%;height:calc(100vh - 44px);overflow:hidden;cursor:grab;touch-action:none}
+#layer{transform-origin:0 0;width:100%}
+#layer img{width:100%;display:block;user-select:none;-webkit-user-drag:none}
+.hs{position:absolute;cursor:pointer;outline:1px dashed transparent}
+.hs:hover{outline:2px solid #0af;background:#08f2}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;padding:12px}
+.grid a{display:block}.grid img{width:100%;display:block;border-radius:4px}
+.nav{display:flex;justify-content:space-between;padding:12px 16px}
+table.cal{margin:12px auto;border-collapse:collapse}
+table.cal td{border:1px solid #333;padding:6px 10px;text-align:center}
+.stats{padding:0 16px;color:#ccc}
+#lb{position:fixed;inset:0;background:#000d;display:none;z-index:99;
+align-items:center;justify-content:center}
+#lb img{max-width:92vw;max-height:84vh;border-radius:4px;
+transform-origin:0 0;touch-action:none;cursor:grab}
+#lb .b{position:absolute;top:50%;transform:translateY(-50%);font-size:2.4em;
+color:#fff;background:#0006;border:0;padding:8px 16px;cursor:pointer;user-select:none}
+#lb .b:hover{background:#000a}
+#lbPrev{left:10px}#lbNext{right:10px}
+#lbX{position:absolute;top:10px;right:16px;font-size:1.8em;color:#fff;
+cursor:pointer;user-select:none}
+#lbCap{position:absolute;bottom:12px;color:#bbb}
+#lb video{max-width:92vw;max-height:84vh;display:none}
+.grid video{width:100%;display:block;border-radius:4px;pointer-events:none}
