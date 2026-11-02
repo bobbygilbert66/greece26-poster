@@ -1,0 +1,9 @@
+# Greece26 poster site — protect photos
+Options -Indexes
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# block hotlinking of photos/videos from other sites
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?bobbygilbertadventures\.co\.uk [NC]
+RewriteRule \.(jpe?g|png|mp4|mov|m4v|webm|avi)$ - [F,L]
+</IfModule>
